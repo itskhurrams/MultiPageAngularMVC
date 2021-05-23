@@ -2,26 +2,25 @@ import { NgModule,Injector } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { WelcomeBannerComponent } from './welcome-banner/welcome-banner.component';
 import { createCustomElement } from '@angular/elements';
+import { BannerModule} from './banner/banner.module';
+import { WelcomeComponent } from './banner/welcome/welcome.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    WelcomeBannerComponent
   ],
   imports: [
-    BrowserModule
-  ],
-  exports: [
-    WelcomeBannerComponent
+    BrowserModule,
+    BannerModule
   ],
   providers: [],
-  entryComponents: [WelcomeBannerComponent]
+  entryComponents: [WelcomeComponent]
+
 })
 export class AppModule {
   constructor(private injector: Injector) {}
   ngDoBootstrap() {
-    customElements.define('app-welcome-banner', createCustomElement(WelcomeBannerComponent, { injector: this.injector }));
+    customElements.define('app-welcome', createCustomElement(WelcomeComponent, { injector: this.injector }));
   }
  }

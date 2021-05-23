@@ -1,11 +1,11 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-welcome-banner',
-  templateUrl: './welcome-banner.component.html',
-  styleUrls: ['./welcome-banner.component.css']
+  selector: 'app-welcome',
+  templateUrl: './welcome.component.html',
+  styleUrls: ['./welcome.component.css']
 })
-export class WelcomeBannerComponent implements OnInit,OnDestroy {
+export class WelcomeComponent implements OnInit {
   timer: any;
   time: string;
   welcomeMessage: string;

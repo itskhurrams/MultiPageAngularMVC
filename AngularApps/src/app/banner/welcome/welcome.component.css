@@ -10,13 +10,16 @@ p {
   font-family: monospace;
   font-size: 25px;
 }
-span{
+
+span {
   display: flex;
   justify-content: center;
   border-radius: 5px;
-  margin-bottom: 10px;;
+  margin-bottom: 10px;
+  ;
 
 }
+
 .welcome-banner {
   background: linear-gradient(rgba(0, 0, 0, 0.95), rgba(0, 0, 0, 0.45)), url('https://picsum.photos/200/300?random=1') !important;
   background-repeat: no-repeat !important;
