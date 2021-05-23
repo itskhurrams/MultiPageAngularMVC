@@ -35,6 +35,11 @@ namespace MultiPageAngularMVC.Controllers
         {
             return View();
         }
+        [Route("AngularSpa/{*url}")]
+        public IActionResult AngularSpa(string url)
+        {
+            return View("AngularSpa", url);
+        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()

@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -51,6 +52,25 @@ namespace MultiPageAngularMVC
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+            app.Map("/angularapps/app01", builder =>
+            {
+                builder.UseSpa(spa =>
+                {
+                    if (env.IsDevelopment())
+                    {
+                        spa.UseProxyToSpaDevelopmentServer($"http://localhost:4201/");
+                    }
+                    else
+                    {
+                        var staticPath = Path.Combine(
+                            Directory.GetCurrentDirectory(), $"wwwroot/angularapps/dist/app01");
+                        var fileOptions = new StaticFileOptions
+                        { FileProvider = new Microsoft.Extensions.FileProviders.PhysicalFileProvider(staticPath) };
+                        builder.UseSpaStaticFiles(options: fileOptions);
+                        spa.Options.DefaultPageStaticFileOptions = fileOptions;
+                    }
+                });
             });
         }
     }
