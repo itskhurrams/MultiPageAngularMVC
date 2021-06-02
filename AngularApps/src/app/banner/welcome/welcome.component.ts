@@ -19,7 +19,7 @@ export class WelcomeComponent implements OnInit {
     };
     setTime();
     this.timer = setInterval(setTime, 500);
-    this.welcomeMessage = "welCome to MultiPage Web Application."
+    this.welcomeMessage = "This is webComponent exported from root Angular App."
   }
   ngOnDestroy(): void {
     if (this.timer){
